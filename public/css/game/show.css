@@ -1,0 +1,41 @@
+body {
+    background: linear-gradient(253.47deg, #22274A 7.39%, #2C3262 34.99%, #1B2041 92.86%);
+}
+
+#game {
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 50px;
+    margin-top: 100px;
+    border-radius: 20px;
+    display: flex;
+}
+
+#game > #game_img {
+    object-fit: scale-down;
+    width: 20%;
+    height: 100%;
+    margin: auto 20px;
+
+}
+
+#game_img > img {
+    max-width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+#game > #game_infos {
+    width: 80%;
+    margin: 10px;
+}
+
+#game_infos > #game_name {
+    width: 100%;
+    height: 30%;
+}
+
+#game_name > h2 {
+    height: fit-content;
+    width: fit-content;
+    margin: auto auto;
+}
