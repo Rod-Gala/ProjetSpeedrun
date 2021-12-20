@@ -1,0 +1,110 @@
+#firstContainer {
+    background-color: black;
+    width: 100%;
+}
+
+#firstContainer > img {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    object-fit: cover;
+}
+
+#firstContainer > h1 {
+    font-size: 3em;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+
+h1 > span {
+    font-weight: 200;
+}
+
+.fa-chevron-down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    font-size: 25px;
+    color: white;
+    font-size: 50px;
+    transform: translateX(-50%);
+}
+
+#secondContainer {
+    height: 100%;
+    background: linear-gradient(253.47deg, #22274A 7.39%, #2C3262 34.99%, #1B2041 92.86%);
+}
+
+#secondContainer > #runs {
+    padding: 3% 10%;
+    border-radius: 15px;
+    
+}
+
+#runs_title {
+    width: 100%;
+    height: fit-content;
+}
+
+#runs_title > h1 {
+    font-weight: 400;
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 15px 15px 0 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.run {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 100%;
+    display: flex;
+    padding: 10px 5%;
+}
+
+.run_img > img {
+    width: 100px;
+}
+
+.run_infos {
+    width: 100%;
+    padding: 10px;
+}
+
+.run_game_name {
+    padding: 5px;
+}
+
+.run_other {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px;
+}
+
+#return_up {
+    display: none;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}   
+
+#return_up a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#return_up i {
+    color: white;
+    padding: 20%;
+    margin: auto;
+}

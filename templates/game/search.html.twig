@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {# Page CSS #}
+    <link rel="stylesheet" href="{{ asset('css/game/search.css') }}">
+    {# Navbar CSS #}
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div id='navbar'>
+    <img src="{{ asset('img/muffin.png') }}" alt="logoSite">
+    <div id='gameHome'>
+        <a href="{{ path('home') }}">Home</a>
+    </div>
+    <div id='searchLogin'>
+        <input id="test" type="text" placeholder="Search">
+        <span>|</span>
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_login') }}">Login</a>
+        {% else %}
+        <a href="{{ path('app_logout') }}">Logout</a>
+        {% endif %}
+        <div id="predictionSearch">
+
+        </div>
+    </div>
+    
+</div>
+
+
+<div id="search_field">
+    <h1>Rechercher des jeux</h1>
+    {% if input_value is defined %}
+    <input id="input_search" type="text" name="g_name" value="{{ input_value }}">
+    {% else %}
+    <input id="input_search" type="text" name="g_name">
+    {% endif %}
+</div>
+
+<div id="games_container">
+
+    {% for data in results %}
+    <div class="game_container">
+        <a href="{{ path('game.show', {'name': data.name}) }}">
+            <div class="game">
+                <div class="game_img">
+                    <img src="{{ data.link_img }}" alt="game_img" >
+                </div>
+                <div class='game_infos'>
+                        <h3>
+                            {{ data.name }}
+                        </h3>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    {% endfor %}
+</div>
+    {# NavBar Script #}
+    <script src="{{ asset('js/hideNavBar.js') }}"></script>
+    {# AJAX Script #}
+    <script src="{{ asset('js/game.index/ajaxGameSearch.js') }}"></script>
+
+{% endblock %}

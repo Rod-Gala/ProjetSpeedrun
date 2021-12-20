@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scrollbar-width: thin;
+}
+
+a, a:hover, a:active, a:visited, a:link {
+    text-decoration: none;
+    color: black;
+}

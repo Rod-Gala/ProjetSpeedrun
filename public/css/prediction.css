@@ -1,0 +1,18 @@
+/* NavBar Search Prediction Style */
+
+#predictionSearch {
+    z-index: -1;
+    position: absolute;
+    right:0;
+    display: none;
+    padding-top: 50px;
+    width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+    min-height: 2px;
+    background-color: black;
+    transform: translateX(0%);
+    transition: 0.4s ease;
+}
+
+/* EO NavBar Search Prediction Style */

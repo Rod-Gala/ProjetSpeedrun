@@ -1,0 +1,85 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+# -----------------------------------------------------------
+
+# HomePage
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+User:
+    path: /user
+    controller: App\Controller\UserController::userInit
+
+
+
+# Registration Page
+app_registration:
+    path: /registration
+    controller: App\Controller\SecurityController::registration
+
+#----------------------LOG IN/OUT----------------------
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+
+#---------------------EO LOG IN/OUT -------------------
+
+# Admin Page 
+admin:
+    path: /admin
+
+# Admin CRUD
+admin.All.user:
+    path: /admin/AllUsers
+    controller: App\Controller\AdminController::showAll
+
+admin.Update.User:
+    path: /admin/{slug}/update
+    controller: App\Controller\AdminController::showOneUser
+
+admin.Update.Role:
+    path: /admin/{slug}/update/redirection
+
+#------------------------Game CRUD-------------------------------
+
+game.index:
+    path: /games
+    controller: App\Controller\GameController::index
+
+game.show:
+    path: /game/{name}
+    controller: App\Controller\GameController::show
+
+game.edit:
+    path: /game/{name}/edit
+    controller: App\Controller\GameController::edit
+
+game.delete:
+    path: /game/{name}/delete
+    controller: App\Controller\GameController::delete
+    
+#---------------------EO Game CRUD-------------------------------
+
+
+#---------------------API ENDPOINTS------------------------------
+
+api.games:
+    path: /api/games
+    controller: App\Controller\ApiEndpointController::gameSearch
+
+#------------------EO API ENDPOINTS------------------------------
+
+
+# test routes
+test:
+    path: /test
+    controller: App\Controller\TestController::index
