@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {# Page CSS #}
+    <link rel="stylesheet" href="{{ asset('css/game/show.css') }}">
+    {# Navbar CSS #}
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+
+    {% if is_granted('ROLE_ADMIN') %}
+    {# Admin Edit Button Style #}
+    <link rel="stylesheet" href="{{ asset('css/game/editAdminButton.css') }}">
+    {% endif %}
+
+{% endblock %}
+
+{% block body %}
+    {# TODO Ajouter NavBar #}
+
+    {% if is_granted("ROLE_ADMIN") %}
+    <div id="editButtonAdmin">
+        <a href="{{ path('game.edit', {name:game.name}) }}">
+            <button>
+                <i class="fas fa-edit"></i> : Edit
+            </button>
+        </a>
+    </div>
+    {% endif %}
+
+    <div id="game">
+        <div id="game_img">
+            <img src="{{ game.LinkImg }}" alt="">
+        </div>
+        <div id="game_infos">
+            <div id="game_name">
+                <h2>{{ game.name }}</h2>
+            </div>
+            <div id="game_other">
+                <div><h3>{{ game.categories|length }} Categories</h3></div>
+                <div><h3>{{ game.runs|length }} Runs</h3></div>
+                <div><h3>{{ game.users|length }} Joueurs</h3></div>
+                <div><h3>Plateformes: {% for plateforme in game.plateforms %}<span>{{ plateforme.name}}</span>{% endfor %}</h3></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex;">
+        {% for categorie in game.categories %}
+            <div style="width: fit-content;">
+                <a href="">
+                    <h4>{{categorie.name}}</h4>
+                </a>
+            </div>
+        {% else %}
+            
+        {% endfor %}
+    </div>
+{% endblock %}

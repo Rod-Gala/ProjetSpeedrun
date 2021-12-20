@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The Front's OnlyFan{% endblock %}
+
+{% block javascript %}
+{% endblock %}
+
+{% block stylesheets %}
+    {# Page CSS #}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    {# Footer CSS #}
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    {# Navbar CSS #}
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+    {# PredictionSearch Style #}
+    <link rel="stylesheet" href="{{ asset('css/prediction.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div id='navbar'>
+    <img src="{{ asset('img/muffin.png') }}" alt="logoSite">
+    <div id='gameHome'>
+        <a href="{{ path('game.index') }}">Games</a>
+        <span>|</span>
+        <a href="{{ path('home') }}">Home</a>
+    </div>
+    <div id='searchLogin'>
+        <form action="{{ path('game.index') }}" method="post">
+            <input name="g_name" id="test" type="text" placeholder="Search" autocomplete="off">
+            <input type="submit" style="display: none;">
+        </form>
+        <span>|</span>
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a href="{{ path('app_login') }}">Login</a>
+        {% else %}
+        <a href="{{ path('app_logout') }}">Logout</a>
+        {% endif %}
+        <div id="predictionSearch">
+
+        </div>
+    </div>
+    
+</div>
+<div id='firstContainer'>
+    <img src="https://picsum.photos/1920/1080" alt="fondEcranSite">
+    <h1><span>Welcome to</span><br>FRONT GOD</h1>
+    <a href="#secondContainer"><i class="fas fa-chevron-down"></i></a>
+</div>
+<div id='secondContainer'>
+    <div id='runs'>
+        <div id="runs_title">
+            <h1>Recent Runs</h1>
+        </div>
+        {% for run in recentRuns %}
+        <div class='run'>
+            <div class='run_img'>
+                <img src="" alt="game_img">
+            </div>
+            <div class='run_infos'>
+                <div class='run_game_name'>
+                    <h3>{#{ run.game }#}</h3>
+                </div>
+                <div class='run_other'>
+                    <h5>{#{ run.category_name }#}</h5>
+                    <h5>POSITION</h5>
+                    <h5>{#{ run.user }#}</h5>
+                    <h5>{{ run.time_run }}</h5>
+                    <h5>{#{ run.date_run }#}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <footer>
+        <div id="f_container">
+            <div id="f_logo">
+                <img src="{{ asset('img/muffin.png') }}" alt="logoSite">
+            </div>
+            <div id="overview">
+                <h2>Overview</h2>
+                <ul>
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li> 
+                        <a href="">Games</a>
+                    </li>
+                    <li>                        
+                        <a href="">Contact</a>
+                    </li>
+                    <li>                        
+                        <a href="">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="support">
+                <h2>Support</h2>
+                <br>
+                <ul>
+                    <li>
+                        <a href="">Partnership</a>
+                    </li>
+                    <li> 
+                        <a href="">Donations</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="support">
+                <h2>Support</h2>
+                <br>
+                <ul>
+                    <li>
+                        <a href="">Partnership</a>
+                    </li>
+                    <li> 
+                        <a href="">Donations</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="copyright">
+            <a href="/legals">© Copyright 2021</a>
+        </div>
+    </footer>
+</div>
+<div id="return_up">
+    <a href="#firstContainer">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+</div>
+    {# Icon FontAwesome #}
+    <script src="https://kit.fontawesome.com/f953e20ddb.js" crossorigin="anonymous"></script>
+    {# SmoothAnchor Transitions #}
+    <script src="{{ asset('js/smoothAnchor.js') }}"></script>
+    {# NavBar Script #}
+    <script src="{{ asset('js/hideNavBar.js') }}"></script>
+    {# AJAX SEARCH Script #}
+    <script src="{{ asset('js/ajaxGameSearch.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,89 @@
+#navbar {
+    transform: translateY(0%);
+    transition: 0.4s ease;
+    display: inline-flex;
+    position: fixed;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+#navbar > img {
+    margin: 5px;
+    height: 40px;
+}
+
+#navbar > #gameHome, #searchLogin {
+    height: 100%;
+    padding: 5px;
+}
+
+#navbar a {
+    padding: 5px;
+    color: white;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+#navbar #gameHome {
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#gameHome span {
+    margin: auto;
+    color: white;
+    cursor: default;
+    padding: 5px 10px;
+}
+
+#navbar #searchLogin {
+    z-index: 2;
+    padding: 0;
+    height: 40px;
+    margin: 5px -5px;
+    width: fit-content;
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    left: 100%;
+    transform: translateX(-100%);
+    background-color: rgb(179, 179, 179);
+    border-radius: 20px;
+    font-size: 24px;
+    color: white;
+}
+
+#searchLogin a {
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+#searchLogin span {
+    cursor: default;
+    padding: 5px 10px;
+}
+
+#searchLogin #test {
+    cursor: pointer;
+    transition: 0.4s ease;
+    color: white;
+    padding: 5px 10px;
+    width: 100px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    border-radius: 20px 20px 0 0;
+}
+
+#test:focus {
+    outline: none;
+}
+
+#test::placeholder {
+    color: rgb(255, 255, 255);
+}

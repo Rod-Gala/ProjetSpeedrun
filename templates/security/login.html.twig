@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The Front's Login Page{% endblock %}
+
+{% block stylesheets %}
+    {# Page CSS #}
+    <link rel="stylesheet" href="{{ asset('css/login/login.css') }}">
+    {# Navbar CSS #}
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id='navbar'>
+    <img src="{{ asset('img/muffin.png') }}" alt="logoSite">
+    <div id='gameHome'>
+        <a href="">Games</a>
+        <a href="{{ path('home') }}">Home</a>
+    </div>
+    <div id='searchLogin'>
+        <a href="{{ path('app_registration')}}">SignUp</a>
+        <a href="">Login</a>
+    </div>
+</div>
+
+
+<div id="l_container">
+    <div id="login_title">
+        <h1>Login</h1>
+    </div>
+    <form action="{{ path('app_login') }}" method="post">
+        <div id="login_fields">
+            <div class="field">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+            </div>
+            <div class="field">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="_password"/>
+            </div>
+        </div>
+        {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account"/> #}
+        <div id="div_submit">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+    <div id="login_footer">
+        <h3>
+            No account?
+            <a href="{{ path('app_registration')}}">Register yourself</a>
+        </h3>
+        </p>
+    </div>
+</div>
+
+{% endblock %}
