@@ -54,6 +54,12 @@ class Run
      */
     private $game;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="runs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,6 +145,18 @@ class Run
     public function setGame(?Game $game): self
     {
         $this->game = $game;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Category
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Category $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
