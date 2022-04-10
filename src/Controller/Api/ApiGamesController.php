@@ -14,18 +14,17 @@ class ApiGamesController extends AbstractController
      */
     public function gameSearch(Request $request, GameRepository $games): Response
     {
-        // Get var g_name and number from the request parameters
+
+        // Get vars from the request parameters
         $g_name = $request->query->get("g_name");
         $number = $request->query->get("number");
+        $plateform = $request->query->get("plateform");
 
-        // If number is defined
-        if ($number) {
-            // Query the database with the defined number
-            $query_result = $games->findNumberByFragName($g_name, $number);
-        } else {
-            // Query the database
-            $query_result = $games->findNumberByFragName($g_name);
+        if (empty($g_name)) {
+            return new Response("Erreur: la variable g_name n'a pas été renseignée", 400);
         }
+
+        $query_result = $games->findNumberByFragName($g_name, $number, $plateform);
 
         // generate the game url route with the name and add it to the array
         for ($i = 0; $i < count($query_result) ; $i++) {
