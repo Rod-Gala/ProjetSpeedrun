@@ -1,11 +1,13 @@
 var input_search = document.getElementById("input_search");
 var games_container = document.getElementById("games_container");
 
+const APIURL = "/symfony/ProjetSpeedrun/public/api/games";
+
 function loadDoc() {
     const xhttp = new XMLHttpRequest();
     var input_search_value = input_search.value;
     if (input_search_value) {
-        const url = "/symfony/Speedrun/public/api/games/?g_name=" + input_search.value +"&number=10";
+        const url = APIURL + "?g_name=" + input_search.value +"&number=10";
         xhttp.onload = function() {
 
             var res = JSON.parse(xhttp.responseText);
