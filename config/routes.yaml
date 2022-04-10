@@ -74,7 +74,7 @@ game.delete:
 
 api.games:
     path: /api/games
-    controller: App\Controller\ApiEndpointController::gameSearch
+    controller: App\Controller\Api\ApiGamesController::gameSearch
 
 #------------------EO API ENDPOINTS------------------------------
 

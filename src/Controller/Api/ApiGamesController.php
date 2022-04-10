@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Api;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\GameRepository;
 
-class ApiEndpointController extends AbstractController
+class ApiGamesController extends AbstractController
 {
     /**
      * Get Parameter from get request parameters and return an array of games
