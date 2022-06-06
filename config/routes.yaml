@@ -1,3 +1,11 @@
+#Importation du routeur de l'API
+
+api_directory:
+    resource: './routes/API/'
+    type: directory
+    prefix: /api
+
+# -----------------------------------------------------------
 controllers:
     resource: ../src/Controller/
     type: annotation
@@ -68,16 +76,6 @@ game.delete:
     controller: App\Controller\GameController::delete
     
 #---------------------EO Game CRUD-------------------------------
-
-
-#---------------------API ENDPOINTS------------------------------
-
-api.games:
-    path: /api/games
-    controller: App\Controller\Api\ApiGamesController::gameSearch
-
-#------------------EO API ENDPOINTS------------------------------
-
 
 # test routes
 test:
