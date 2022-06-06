@@ -1,7 +1,11 @@
 #---------------------API ENDPOINTS------------------------------
 
 api.games:
-    path: /api/games
+    path: /games
     controller: App\Controller\Api\ApiGamesController::gameSearch
+
+api.users:
+    path: /users
+    controller: App\Controller\Api\ApiUserController::userSearch
 
 #------------------EO API ENDPOINTS------------------------------

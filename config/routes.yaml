@@ -77,6 +77,13 @@ game.delete:
     
 #---------------------EO Game CRUD-------------------------------
 
+#--------------------- CRUD User ---------------------------------
+
+user.show:
+    path: /user/{username}
+    controller: App\Controller\UserController::show
+
+
 # test routes
 test:
     path: /test

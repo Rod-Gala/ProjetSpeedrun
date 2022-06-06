@@ -96,4 +96,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->getResult()
         ;
     }
+    public function getUsernameFromFragUsername($frag){
+        return $this->createQueryBuilder('u')
+            ->select('u.username')
+            ->andWhere('u.username LIKE :frag')
+            ->setParameter('frag', $frag.'%')
+            ->orderBy('u.username', 'ASC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

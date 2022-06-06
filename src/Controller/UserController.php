@@ -14,11 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
-    //[Route('/User', name: 'user')]
-    public function index(): Response
+    public function show (User $user): Response
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+        return $this->render('user/show.html.twig',
+        [
+            'user' => $user,
         ]);
     }
+
 }
