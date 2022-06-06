@@ -16,6 +16,7 @@ class ApiGamesController extends AbstractController
     {
         // Get var g_name and number from the request parameters
         $g_name = $request->query->get("g_name");
+        //Number of games that we want
         $number = $request->query->get("number");
 
         // If number is defined
