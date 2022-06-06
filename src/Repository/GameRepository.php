@@ -19,17 +19,31 @@ class GameRepository extends ServiceEntityRepository
         parent::__construct($registry, Game::class);
     }
 
-    public function findNumberByFragName($fragName, $number = 5)
+    public function findNumberByFragName($fragName, $number = 5, $plateform = null)
     {
-        return $this->createQueryBuilder('g')
-            ->select('g.name', 'g.link_img')
-            ->andWhere('g.name LIKE :fragName')
-            ->setParameter('fragName', '%'.$fragName.'%')
+
+        $query_builder = $this->createQueryBuilder('g');
+
+        $query_builder
+        ->select('g.name', 'g.link_img')
+        ->andWhere('g.name LIKE :fragName')
+        ->setParameter('fragName', '%'.$fragName.'%');
+
+        if ($plateform != null) {
+            $query_builder
+                ->innerJoin("g.plateforms", "P")
+                ->andWhere("P.name = :plateform")
+                ->setParameter("plateform", $plateform);
+        }
+
+        $query_builder
             ->orderBy('g.name', 'ASC')
-            ->setMaxResults($number)
+            ->setMaxResults($number);
+            
+       
+        return $query_builder
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     public function findNumberOrderASC($number)
